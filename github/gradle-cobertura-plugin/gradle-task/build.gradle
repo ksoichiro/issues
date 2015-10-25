@@ -1,0 +1,41 @@
+plugins {
+    id 'net.saliman.cobertura' version '2.2.8'
+}
+
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+group = "example"
+version = "0.0.1"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    testCompile 'junit:junit:4.12'
+    // With above dependencies, test task succeeds,
+    // but instrument task fails:
+    //    :instrument
+    //    Cobertura 2.1.1 - GNU GPL License (NO WARRANTY) - See COPYRIGHT file
+    //    Unable to instrument file /Users/xxx/Workspace/issues/github/gradle-cobertura-plugin/gradle-task/build/instrumented_classes/com/example/greeting/GreetingTask.class
+    //    java.lang.NoClassDefFoundError: org/gradle/util/Configurable
+    //    ...
+    //    Caused by: java.lang.ClassNotFoundException: org.gradle.util.Configurable
+    // Task will success, but the line coverage of GreetingTask class is zero.
+
+    cobertura gradleApi()
+    // With this, Configurable class can be resolved but still fail:
+    //    :instrument
+    //    SLF4J: Class path contains multiple SLF4J bindings.
+    //            SLF4J: Found binding in [jar:file:/Users/xxx/.gradle/wrapper/dists/gradle-2.7-all/4ryh47z6pv2tj9n03uiw8pzc6/gradle-2.7/lib/gradle-core-2.7.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+    //    SLF4J: Found binding in [jar:file:/Users/xxx/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.0.13/6b56ec752b42ccfa1415c0361fb54b1ed7ca3db6/logback-classic-1.0.13.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+    //    SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+    //    Failed to instantiate SLF4J LoggerFactory
+    //    Reported exception:
+    //    java.lang.NoClassDefFoundError: org/slf4j/spi/LoggerFactoryBinder
+    //    ...
+    //    Caused by: java.lang.ClassNotFoundException: org.slf4j.spi.LoggerFactoryBinder
+}
