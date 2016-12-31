@@ -60,53 +60,50 @@ node: 192.168.33.11, errors: false, count: 50
 $ spring run search.groovy
 Query: {"from":0,"size":1,"explain":true,"query":{"match_all":{}},"sort":["age"]}
 Duplicate results
-_id: 152 -> 2 times
-_id: 373 -> 2 times
-_id: 582 -> 2 times
-_id: 859 -> 2 times
-_id: 924 -> 2 times
-_id: 525 -> 2 times
-_id: 272 -> 2 times
-_id: 835 -> 2 times
-_id: 897 -> 2 times
-_id: 102 -> 2 times
-_id: 789 -> 2 times
-_id: 462 -> 2 times
-_id: 506 -> 2 times
-_id: 107 -> 2 times
-_id: 708 -> 2 times
-_id: 176 -> 2 times
-_id: 758 -> 2 times
-_id: 866 -> 2 times
-_id: 289 -> 2 times
-_id: 563 -> 2 times
-_id: 51 -> 2 times
-_id: 638 -> 2 times
-_id: 195 -> 2 times
-_id: 277 -> 2 times
-_id: 429 -> 2 times
-_id: 1 -> 2 times
-_id: 777 -> 2 times
-_id: 121 -> 2 times
-_id: 145 -> 2 times
-_id: 467 -> 2 times
-_id: 602 -> 2 times
-_id: 823 -> 2 times
-_id: 955 -> 2 times
-_id: 32 -> 2 times
-_id: 296 -> 2 times
-_id: 330 -> 2 times
-_id: 304 -> 2 times
-_id: 417 -> 2 times
-_id: 513 -> 2 times
-_id: 760 -> 2 times
-_id: 37 -> 2 times
-_id: 99 -> 2 times
-_id: 138 -> 2 times
-_id: 498 -> 2 times
-_id: 549 -> 2 times
-_id: 878 -> 2 times
-_id: 948 -> 2 times
+_id: 246 -> 2 times: [64:shard2(primary), 71:shard2(replica)]
+_id: 75 -> 2 times: [114:shard2(primary), 119:shard2(replica)]
+_id: 385 -> 2 times: [115:shard2(replica), 118:shard2(primary)]
+_id: 227 -> 2 times: [116:shard2(primary), 121:shard2(replica)]
+_id: 688 -> 2 times: [117:shard2(replica), 120:shard2(primary)]
+_id: 436 -> 2 times: [159:shard2(replica), 160:shard2(primary)]
+_id: 734 -> 2 times: [161:shard2(replica), 162:shard2(primary)]
+_id: 210 -> 2 times: [200:shard2(primary), 209:shard2(replica)]
+_id: 450 -> 2 times: [243:shard2(replica), 244:shard2(primary)]
+_id: 640 -> 2 times: [245:shard2(replica), 246:shard2(primary)]
+_id: 328 -> 2 times: [345:shard2(replica), 346:shard2(primary)]
+_id: 551 -> 2 times: [347:shard2(replica), 348:shard2(primary)]
+_id: 13 -> 2 times: [382:shard2(primary), 387:shard2(replica)]
+_id: 811 -> 2 times: [391:shard2(replica), 392:shard2(primary)]
+_id: 63 -> 2 times: [478:shard2(primary), 481:shard2(replica)]
+_id: 309 -> 2 times: [479:shard2(replica), 482:shard2(primary)]
+_id: 809 -> 2 times: [483:shard2(replica), 484:shard2(primary)]
+_id: 253 -> 2 times: [519:shard2(replica), 522:shard2(primary)]
+_id: 366 -> 2 times: [521:shard2(replica), 524:shard2(primary)]
+_id: 626 -> 2 times: [523:shard2(replica), 526:shard2(primary)]
+_id: 986 -> 2 times: [527:shard2(replica), 528:shard2(primary)]
+_id: 316 -> 2 times: [581:shard2(replica), 586:shard2(primary)]
+_id: 56 -> 2 times: [582:shard2(primary), 585:shard2(replica)]
+_id: 520 -> 2 times: [583:shard2(replica), 588:shard2(primary)]
+_id: 380 -> 2 times: [631:shard2(replica), 634:shard2(primary)]
+_id: 70 -> 2 times: [632:shard2(primary), 637:shard2(replica)]
+_id: 587 -> 2 times: [633:shard2(replica), 636:shard2(primary)]
+_id: 739 -> 2 times: [635:shard2(replica), 638:shard2(primary)]
+_id: 828 -> 2 times: [639:shard2(replica), 640:shard2(primary)]
+_id: 169 -> 2 times: [684:shard2(primary), 693:shard2(replica)]
+_id: 342 -> 2 times: [785:shard2(replica), 790:shard2(primary)]
+_id: 20 -> 2 times: [786:shard2(primary), 795:shard2(replica)]
+_id: 378 -> 2 times: [787:shard2(replica), 792:shard2(primary)]
+_id: 222 -> 2 times: [788:shard2(primary), 799:shard2(replica)]
+_id: 455 -> 2 times: [789:shard2(replica), 794:shard2(primary)]
+_id: 599 -> 2 times: [791:shard2(replica), 796:shard2(primary)]
+_id: 727 -> 2 times: [793:shard2(replica), 798:shard2(primary)]
+_id: 44 -> 2 times: [834:shard2(primary), 837:shard2(replica)]
+_id: 993 -> 2 times: [839:shard2(replica), 840:shard2(primary)]
+_id: 25 -> 2 times: [920:shard2(primary), 923:shard2(replica)]
+_id: 575 -> 2 times: [921:shard2(replica), 928:shard2(primary)]
+_id: 82 -> 2 times: [922:shard2(primary), 925:shard2(replica)]
+_id: 126 -> 2 times: [924:shard2(primary), 927:shard2(replica)]
+_id: 873 -> 2 times: [929:shard2(replica), 930:shard2(primary)]
 ```
 
 If you cannot reproduce it, run `spring run bulk.groovy` again.

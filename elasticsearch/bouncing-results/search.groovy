@@ -38,29 +38,31 @@ class EsExport implements CommandLineRunner {
         }
         println "Query: ${json.toString()}"
         def http = new RESTClient("http://${esConfig.host}:${esConfig.port}/")
+        def shards = http.get(path: '_cluster/state', contentType: JSON).data.routing_table.indices.bank.shards
         def hits = [:]
+        def idx = 1
         while (true) {
             def result = http.post(path: 'bank/account/_search', contentType: JSON, body: json.toString()).data
             if (result.hits.hits.size() == 0) {
                 break
             }
             result.hits.hits.each { hit ->
-                if (hits.containsKey(hit._id)) {
-                    hits[hit._id]++
-                } else {
-                    hits[hit._id] = 1
+                if (!hits.containsKey(hit._id)) {
+                    hits[hit._id] = [:]
                 }
+                hits[hit._id][idx] = "shard${hit._shard}(${shards[hit._shard.toString()].find { it.node == hit._node }.primary ? 'primary' : 'replica'})"
                 //println JsonOutput.toJson([_id: hit._id])
             }
             json.content.from += json.content.size
+            idx++
         }
-        def duplicates = hits.findAll { k, v -> v > 1 }
+        def duplicates = hits.findAll { k, v -> v.size() > 1 }
         if (duplicates.size() == 0) {
             println "No duplicate result"
         } else {
             println "Duplicate results"
             duplicates.each { k, v ->
-                println "_id: ${k} -> ${v} times"
+                println "_id: ${k} -> ${v.size()} times: ${v}"
             }
         }
     }
