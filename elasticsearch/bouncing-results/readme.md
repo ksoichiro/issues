@@ -13,7 +13,7 @@ Quoted from [Elasticsearch: The Definitive Guide](https://www.elastic.co/guide/e
 
 ### Prepare Elasticsearch cluster
 
-Clone [ksoichiro/vagrant-templates](/centos71-elasticsearch](https://github.com/ksoichiro/vagrant-templates/) repository and start Elasticsearch servers:
+Clone [ksoichiro/vagrant-templates](https://github.com/ksoichiro/vagrant-templates/) repository and start Elasticsearch servers:
 
 ```
 $ cd vagrant-templates/centos71-elasticsearch
