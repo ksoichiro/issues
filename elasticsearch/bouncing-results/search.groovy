@@ -14,7 +14,7 @@ class EsExportConfigProperties {
 }
 
 @Component
-class EsExport implements CommandLineRunner {
+class Search implements CommandLineRunner {
     @Autowired
     EsExportConfigProperties esConfig
 
