@@ -42,6 +42,8 @@ class Search implements CommandLineRunner {
         def hits = [:]
         def idx = 1
         while (true) {
+            //def command = "curl --noproxy ${esConfig.host} http://${esConfig.host}:${esConfig.port}/bank/account/_search?preference=_primary_first -d ${json.toString()}"
+            //def result = new JsonSlurper().parseText(command.execute().text)
             def result = http.post(path: 'bank/account/_search', contentType: JSON, body: json.toString()).data
             if (result.hits.hits.size() == 0) {
                 break
